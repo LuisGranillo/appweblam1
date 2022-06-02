@@ -1,0 +1,38 @@
+<?php
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ */
+?>
+<div class="card-deck">
+    <div class="card">
+        <h2 class="card-header">UTP -TI - DESARROLLO WEB INTEGRAL</h2>
+        <div class="card-body">
+        <a id="mt" href="javascript:void(0)" class="btn btn-primary btn-lg">Mostrar triángulo</a>
+            <hr class="my-4">
+            ancho: <input type="text" id="txtancho">
+            alto: <input type="text" id="txtalto">
+            <hr class="my-4">
+            <div id="contenido">
+
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+$("#mt").click(solitarTriangulo);
+function solitarTriangulo(){
+    //var URL="http://localhost:8080/lun30/getimg.php";
+    var URL="http://localhost/lun30/getimg.php?ancho=" + $("#txtancho").val() + "&alto=" + $("#txtalto").val();
+   // alert(URL);
+    $.get(
+        URL, 
+        function(datos, estado){
+            $("#contenido").html(datos);
+        }
+    );
+}
+    </script>
